@@ -1,19 +1,56 @@
-<div class="container">
+<!-- <div class="container">
+    <div class="navbar">
+        <div class="container">
+            <ul>
+                <li><a href="#!viewPark">View Parks</a></li>
+            </ul>
+        </div>
+    </div> -->
 
+
+    <md-nav-bar
+      md-no-ink-bar="disableInkBar"
+      md-selected-nav-item="currentNavItem"
+      nav-bar-aria-label="navigation links">
+      <md-nav-item md-nav-href="/#!user" name="Home">
+        Home
+      </md-nav-item>
+      <md-nav-item md-nav-href="/#!addPark" name="addPark">
+        Add Park
+      </md-nav-item>
+      <md-nav-item md-nav-href="/#!viewPark" name="viewPark">
+        Reports
+      </md-nav-item>
+      <md-nav-item md-nav-href="/#!info" name="info">
+        Info
+      </md-nav-item>
+</md-nav-bar>
+
+
+
+
+    <h4>Welcome to Where The Dogs Roam, <br>If you're just looking for parks, click on View Parks! Otherwise please sign in</h4>
   <h1 class="lead">Login</h1>
     <h1 class="lead alert alert-danger" role="alert" ng-if="vm.message != ''">{{vm.message}}</h2>
     <form ng-submit="vm.login()">
       <div>
-          <label for="username">Username:</label>
-          <input type="text" ng-model="vm.user.username" />
+            <md-input-container class="md-block" flex-gt-sm>
+                    <label>Username</label>
+                    <input ng-model="vm.user.username">
+                    </md-input-container>
       </div>
       <div>
-          <label for="password">Password:</label>
-          <input type="password" ng-model="vm.user.password" />
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Password</label>
+            <input ng-model="vm.user.password" type="password" placeholder="password">
+            </md-input-container>
       </div>
       <div>
-          <input class="btn btn-default" type="submit" name="submit" value="Log In" />
+          <md-button class="btn btn-default" type="submit" name="submit" value="Log In">Log In</md-button>
           <a href="#!register">Register</a>
       </div>
     </form>
 </div>
+
+
+

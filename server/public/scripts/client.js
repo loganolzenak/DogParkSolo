@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngAria', 'ngMessages']);
 
 /// Routes ///
 myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
@@ -35,6 +35,11 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
     .when('/addPark', {
       templateUrl: 'views/templates/addParks.html',
       controller: 'AddParkController as vm',
+      resolve: {
+        getuser: function (UserService) {
+          return UserService.getuser();
+        }
+      }
     })
     .when('/viewPark', {
       templateUrl: 'views/templates/viewParks.html',
