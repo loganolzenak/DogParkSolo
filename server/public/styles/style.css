@@ -65,7 +65,13 @@ li a {
     padding: 14px 16px;
     text-decoration: none;
 
-} 
+}
+
+#rating {
+    max-width: 300px;
+    vertical-align: middle;
+    line-height: 48px;
+}
 
 /* Change the link color to #111 (black) on hover */
 /* li a:hover {

@@ -1,60 +1,58 @@
-<div ng-include="'views/partials/nav.html'"></div>
+<!-- <div ng-include="'views/partials/nav.html'"></div> -->
 <div class="container">
   <div>
       <!-- <md-input required type="text" ng-model="vm.newPark.street" placeholder="Street"> -->
-      <md-card-content>
+
+        <!-- street -->
         <md-input-container>
           <label>Street</label>
-          <input>
+          <input placeholder="Add Street" ng-model="vm.newPark.street">
         </md-input-container>
-      </md-card-content>
-      <md-card-content>
+  
+          <!-- City -->
           <md-input-container>
-            <!-- City -->
             <label>City</label>
-            <input>
+            <input placeholder="Add City" ng-model="vm.newPark.city">
           </md-input-container>
-        </md-card-content>
-        <!-- zip -->
-        <md-card-content>
-            <md-input-container>
+  
+         <!-- zip -->
+          <md-input-container>
               <label>Zip</label>
-              <input>
-            </md-input-container>
-          </md-card-content>
+              <input placeholder="Add Zip Code" ng-model="vm.newPark.zip">
+          </md-input-container>
+
+          <!-- Date -->
+          <md-input-container>
+              <label>Enter date</label>
+              <md-datepicker ng-model="vm.newPark.date"></md-datepicker>
+          </md-input-container>
+
           <!-- description -->
-          <md-card-content>
-              <md-input-container>
+            <md-input-container>
                 <label>Description</label>
-                <input>
-              </md-input-container>
-            </md-card-content>
+                <input placeholder="Enter Description" ng-model="vm.newPark.description">
+            </md-input-container>
 
-
+               <!-- poop rating -->
+          <div layout id="rating">
+              <div layout style="padding: 0px 20px 0px 0px;">
+                <label>Poop Rating</label>
+              </div>
+              <md-slider flex md-discrete ng-model="vm.newPark.poop_rate" step="1" min="1" max="5" aria-label="rating">
+              </md-slider>
+            </div>
+             
+            <!-- Button -->
+            <md-button class="btn btn-default" type="submit" ng-click="vm.addParks(vm.newPark, vm.userObject)">Add Park!</button>
+            </div>
+          </div>
 
       <!-- <input required type="text" ng-model="vm.newPark.city" placeholder="City"> -->
       <!-- <input required type="text" ng-model="vm.newPark.zip" placeholder="Zip"> -->
-      <input type="number" ng-model="vm.newPark.poop_rate" placeholder="Poop rate">
-      <input type="date" ng-model="vm.newPark.date">
+      <!-- <input type="number" ng-model="vm.newPark.poop_rate" placeholder="Poop rate">
+      <input type="date" ng-model="vm.newPark.date"> -->
       <!-- <input type="text" ng-model="vm.newPark.description" placeholder="Description of park"> -->
-      <button class="btn btn-default" ng-click="vm.addParks(vm.newPark, vm.userObject)">Add Park!</button>
-  </div>
-</div>
-
-
-
-
-<!-- <md-card-content>
-    <div layout="row">
-      <md-input-container>
-        <label>Street Name</label>
-        <input>
-      </md-input-container>
-
-      <md-input-container>
-        <label>City</label>
-        <input>
-      </md-input-container> -->
-
 
 <!-- switch div class to a form, move ng click , ng submit on form element-->
+
+

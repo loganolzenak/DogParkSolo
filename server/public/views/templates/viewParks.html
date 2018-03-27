@@ -1,4 +1,8 @@
-<div ng-include="'views/partials/nav.html'"></div>
+<!-- <div ng-include="'views/partials/nav.html'"></div> -->
+<md-input-container>
+    <input type="text" placeholder="SearchPark" ng-model="searchBox">
+</md-input-container>
+<br>
 <div class="container">
     <table >
         <thead>
@@ -11,7 +15,7 @@
             <th>Added By</th> 
         </thead>
             <tbody>
-                <tr ng-repeat="park in vm.Parks.list">
+                <tr ng-repeat="park in vm.Parks.list | filter: searchBox">
                 <td>{{park.street}}</td>
                 <td>{{park.city}}</td>
                 <td>{{park.zip}}</td>
