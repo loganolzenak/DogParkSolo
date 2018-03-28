@@ -1,4 +1,4 @@
-myApp.controller('ViewParkController', ['ViewParkService','ParksService', function(ViewParkService , ParksService) {
+myApp.controller('ViewParkController', ['ParksService', function( ParksService) {
     console.log('view park controller created');
     var self = this;
 
@@ -6,8 +6,7 @@ myApp.controller('ViewParkController', ['ViewParkService','ParksService', functi
     self.ParksService = ParksService;
    
 
-    self.ViewParkService = ViewParkService;
-
+    
     self.Parks = ParksService.Parks;
 
     self.newPark = ParksService.newPark;
@@ -17,4 +16,5 @@ myApp.controller('ViewParkController', ['ViewParkService','ParksService', functi
     self.getParks = ParksService.getParks;
     self.getParks();
     
+    self.deletePark = ParksService.deletePark;
 }]);

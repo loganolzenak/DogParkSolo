@@ -9,7 +9,7 @@ myApp.service('ParksService', ['$http', '$location', function ($http, $location)
 self.getParks = function(){
     $http({
         method:'GET',
-        url: '/addParks'
+        url: '/park'
     }).then(function(response){
         console.log('succes in add park get', response);
         self.Parks.list = response.data;
@@ -25,13 +25,28 @@ self.addParks = function (park, user){
     console.log('park', park);
     $http({
         method: 'POST',
-        url: '/addParks',
+        url: '/park',
         data: park
     }).then(function(response){
         console.log('success in post', response);
         self.getParks();           
     }).catch(function(error){
         console.log('error in post', error.config.data);
+    })
+}
+    self.deletePark = function(id){
+    console.log('this is id', id);
+    
+    $http({
+        method:'DELETE',
+        url:`/park/${id}`
+    })
+    .then((response)=>{
+        console.log('spot deleted');
+    self.getParks();
+    })
+    .catch((error)=>{
+        console.log('error', error);
     })
 }
 

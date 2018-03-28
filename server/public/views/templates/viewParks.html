@@ -1,10 +1,9 @@
-<!-- <div ng-include="'views/partials/nav.html'"></div> -->
 <md-input-container>
     <input type="text" placeholder="SearchPark" ng-model="searchBox">
 </md-input-container>
 <br>
 <div class="container">
-    <table >
+    <!-- <table >
         <thead>
             <th>Street</th> 
             <th>City</th> 
@@ -14,40 +13,28 @@
             <th>Description</th> 
             <th>Added By</th> 
         </thead>
-            <tbody>
-                <tr ng-repeat="park in vm.Parks.list | filter: searchBox">
-                <td>{{park.street}}</td>
-                <td>{{park.city}}</td>
-                <td>{{park.zip}}</td>
-                <td>{{park.poop_rate}}</td>
-                <td>{{park.date | date:format: short}}</td>
-                <td>{{park.description}}</td>
-                <td>{{park.added_by}}</td>
-                </tr>
-            </tbody>
-    </table>
+           
+    </table> -->
 
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column">
+        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch ng-repeat="park in vm.Parks.list | filter: searchBox">
+            <md-card-text>Username: {{park.added_by}}</md-card-text>
+            <md-card-text>Street: {{park.street}}</md-card-text>
+            <md-card-text>City: {{park.city}}</md-card-text>
+            <md-card-text>Zip Code: {{park.zip}}</md-card-text>
+            <md-card-text>Poop Rating: {{park.poop_rate}}</md-card-text>
+            <md-card-text>Date Added: {{park.date | date:format: short}}</md-card-text>
+            <md-card-text>Parks Description: {{park.description}}</md-card-text>
+        <div class="md-media-lg card-media"></div>
+    </md-card-title-media>
+    </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+        <md-button class="btn btn-default" ng-click="vm.deletePark(park._id)">Delete</md-button>
+        <md-button>dislike</md-button>
+    </md-card-actions>
+</md-card>
+</md-content>
 </div>
 
-
-<!-- 
-<mat-card class="example-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>Shiba Inu</mat-card-title>
-          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-          <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-            bred for hunting.
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
-        </mat-card-actions>
-      </mat-card> -->
-      
+<!-- ng-if="park.added_by === vm.userObject.userName" -->

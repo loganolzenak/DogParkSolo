@@ -17,7 +17,10 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', functi
           if(response.status == 200) {
             console.log('success: ', response.data);
             // location works with SPA (ng-route)
-            $location.path('/user');
+
+            
+            //reroute to view park not home
+            $location.path('/viewPark');
           } else {
             console.log('failure error: ', response);
             self.message = "The password was not correct.";

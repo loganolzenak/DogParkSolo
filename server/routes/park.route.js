@@ -42,29 +42,20 @@ router.post('/', (request, response)=> {
     })    
 });
 
+router.delete('/:id', (request, response) => {
+    let id = request.params.id;
+    Parks.findByIdAndRemove(
+        {"_id": id},
+        (error, success) => {
+            if(error){
+                console.log('error in delete', error);
+                response.sendStatus(500);
+            } else {
+                response.sendStatus(200);
+            }
+        }
+    )
+});
+
+
 module.exports = router;
-
-
-// router.get('/', (request, response) => {
-//     Employee.find({}, (error, foundEmployees) => {
-//       if (error){
-//         console.log('error on find employees:', error);
-//         response.sendStatus(500);
-//       } else {
-//         response.send(foundEmployees);
-//       }
-//     })
-//   });
-  
-//   router.post('/', (request, response)=> {
-//       let newEmployee = new Employee (request.body);
-//       console.log('employee added', newEmployee);
-//       newEmployee.save((error, addedEmployee ) => {
-//           if(error){
-//               console.log('error in posting employee', error);
-//               response.sendStatus(500);
-//           }else {
-//               response.sendStatus(201);
-//           }
-//       })
-//   });
