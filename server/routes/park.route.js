@@ -11,7 +11,9 @@ var ParkSchema = new Schema({
     poop_rate: {type: Number, required: true},
     date: {type: Date, required: true},
     description: {type: String, required: true},
-    added_by: {type: String, required: true}
+    added_by: {type: String, required: true},
+    edit: {type: Boolean, default: false},
+    likes: {type: Number, default: 0 },
 })
 
 const Parks = mongoose.model('Parks', ParkSchema, 'Parks')
@@ -56,6 +58,29 @@ router.delete('/:id', (request, response) => {
         }
     )
 });
+
+router.put('/:id', (request , response)=> {
+    let id = request.params.id;
+    let parkToUpdate = request.body;
+    console.log('park being updated', parkToUpdate);
+    Parks.findByIdAndUpdate(
+        {"_id": id},
+        {$set: parkToUpdate},
+        (error, result) =>{
+            if(error){
+                console.log('error in update' , error);
+                response.sendStatus(500);
+            } else {
+                response.sendStatus(200)
+            }
+        }
+    )
+})
+
+
+
+
+
 
 
 module.exports = router;

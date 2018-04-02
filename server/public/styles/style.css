@@ -4,8 +4,29 @@
 }
 
 .instructions {
-    background-color: #028322;
+    background-color: red;
     color: rgb(3, 0, 0);
+    background-image: url("../assets/DOGLINEUPP.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+  
+    /* margin-top: 50px; */
+    /* width: 100%; */
+    padding: 45px;
+    /* padding-left: 50px; */
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+
+#headerText {
+    color: red;
+    padding-bottom: 120px;
+    padding-left: 105px;
 }
 
 #entryForm {
@@ -72,9 +93,3 @@ li a {
     vertical-align: middle;
     line-height: 48px;
 }
-
-/* Change the link color to #111 (black) on hover */
-/* li a:hover {
-    text-decoration: underline;
-    color: #eee;
-} */

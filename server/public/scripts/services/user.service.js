@@ -12,7 +12,7 @@ myApp.service('UserService', ['$http', '$location', function ($http, $location) 
       if (response.data.username) {
         // user has a curret session on the server
         self.userObject.userName = response.data.username;
-        console.log('User Data: ', self.userObject.userName);
+        // console.log('User Data: ', self.userObject.userName);
       } else {
         // user has no session, bounce them back to the login page
         $location.path("/home");
@@ -27,4 +27,7 @@ myApp.service('UserService', ['$http', '$location', function ($http, $location) 
     });
   }
 }]);
+
+
+
 

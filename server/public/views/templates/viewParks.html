@@ -3,38 +3,62 @@
 </md-input-container>
 <br>
 <div class="container">
-    <!-- <table >
-        <thead>
-            <th>Street</th> 
-            <th>City</th> 
-            <th>Zip</th> 
-            <th>Poop Rating</th> 
-            <th>Date</th> 
-            <th>Description</th> 
-            <th>Added By</th> 
-        </thead>
-           
-    </table> -->
-
 <md-content class="md-padding" layout-xs="column" layout="row">
     <div flex-xs flex-gt-xs="50" layout="column">
         <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch ng-repeat="park in vm.Parks.list | filter: searchBox">
-            <md-card-text>Username: {{park.added_by}}</md-card-text>
-            <md-card-text>Street: {{park.street}}</md-card-text>
-            <md-card-text>City: {{park.city}}</md-card-text>
-            <md-card-text>Zip Code: {{park.zip}}</md-card-text>
-            <md-card-text>Poop Rating: {{park.poop_rate}}</md-card-text>
-            <md-card-text>Date Added: {{park.date | date:format: short}}</md-card-text>
-            <md-card-text>Parks Description: {{park.description}}</md-card-text>
+
+            <md-card-text>
+                <div ng-hide="park.edit">Username: {{park.added_by}}
+                <input ng-show="park.edit" ng-model="park.added_by" ng-value="park.added_by">
+                </div>
+            </md-card-text>
+
+            <md-card-text>
+                    <div ng-hide="park.edit">Street: {{park.street}}</div>
+                    <input ng-show="park.edit" ng-model="park.street" ng-value="park.street">
+            </md-card-text>
+
+            <md-card-text>
+                    <div ng-hide="park.edit">City: {{park.city}}</div>
+                    <input ng-show="park.edit" ng-model="park.city" ng-value="park.city">
+            </md-card-text>
+
+            <md-card-text>
+                    <div ng-hide="park.edit">Zip Code: {{park.zip}}</div>
+                    <input ng-show="park.edit" ng-model="park.zip" ng-value="park.zip">
+            </md-card-text>
+
+            <md-card-text>
+                    <div ng-hide="park.edit">Poop Rating: {{park.poop_rate}}</div>
+                    <input ng-show="park.edit" ng-model="park.poop_rate" ng-value="park.poop_rate">
+            </md-card-text>
+
+            <md-card-text>
+                    <div ng-hide="park.edit">Date Added: {{park.date | date:format: short}}</div>
+                    <input ng-show="park.edit" ng-model="park.date" ng-value="park.date">
+            </md-card-text>
+
+            <md-card-text>
+                    <div ng-hide="park.edit">Parks Description: {{park.description}}</div>
+                    <input ng-show="park.edit" ng-model="park.description" ng-value="park.description">
+            </md-card-text>
+
+ 
         <div class="md-media-lg card-media"></div>
     </md-card-title-media>
     </md-card-title>
+    
         <md-card-actions layout="row" layout-align="end center">
-        <md-button class="btn btn-default" ng-click="vm.deletePark(park._id)">Delete</md-button>
-        <md-button>dislike</md-button>
+        <md-button ng-click="vm.deletePark(park._id)" ng-show="park.added_by == vm.UserService.userObject.userName">Delete</md-button>
     </md-card-actions>
 </md-card>
 </md-content>
 </div>
 
-<!-- ng-if="park.added_by === vm.userObject.userName" -->
+
+
+<!-- 
+
+<td><button ng-hide="employee.editing" ng-click="employee.editing=true">Edit</button>
+    <button ng-show="employee.editing" ng-click="ec.updateEmployee(employee); employee.editing=false">Submit</button> -->
+

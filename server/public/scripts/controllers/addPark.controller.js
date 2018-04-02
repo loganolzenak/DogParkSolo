@@ -19,7 +19,8 @@ myApp.controller('AddParkController', ['ParksService', 'UserService', function(P
     self.newPark = ParksService.newPark;
     console.log('self.newPark controller', self.newPark );
     
-    
+    self.popUp = ParksService.popUp;
+    self.updatePark = ParksService.updatePark;
 
 
     self.getParks = ParksService.getParks;

@@ -2,7 +2,7 @@
 <div class="container">
   <div>
          <!-- street -->
-        <md-input-container>
+        <md-input-container ng-click="vm.newPark = null">
           <label>Street</label>
           <input placeholder="Add Street" ng-model="vm.newPark.street">
         </md-input-container>
@@ -41,7 +41,11 @@
             </div>
              
             <!-- Button -->
-            <md-button class="btn btn-default" type="submit" ng-click="vm.addParks(vm.newPark, vm.userObject)">Add Park!</button>
+            <div ng-click="vm.popUp()">
+              <section ng-click="vm.newPark = null">
+            <md-button  type="submit" ng-click="vm.addParks(vm.newPark, vm.userObject)">Add Park!</button>
+            </section>
             </div>
           </div>
+         </div>
 

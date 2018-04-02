@@ -1,7 +1,15 @@
 var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngAria', 'ngMessages']);
 
 /// Routes ///
-myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+myApp.config(['$routeProvider', '$locationProvider','$mdThemingProvider', function ($routeProvider, $locationProvider , $mdThemingProvider) {
+
+
+  $mdThemingProvider.theme('default')
+  .primaryPalette('grey')
+  .accentPalette('red');
+
+
+
   $routeProvider
     .when('/', {
       redirectTo: 'home'
@@ -48,4 +56,10 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
     .otherwise({
       template: '<h1>404</h1>'
     });
+
+
+
+
+
+
 }]);
